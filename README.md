@@ -7,23 +7,23 @@ Proyecto del Segundo Parcial — Ciencia de Datos e Inteligencia Artificial.
 URL pública: https://andresvl.pythonanywhere.com/
 
 ## Estructura
-
+```
 Proyecto2P_RiesgoInundacion_LosRios/
-├── app.py                              # Backend Flask
-├── wsgi.py                             # Punto de entrada WSGI (despliegue)
+├── app.py                                     # Backend Flask
+├── wsgi.py                                    # Punto de entrada WSGI (despliegue)
 ├── requirements.txt
 ├── Procfile
 ├── .gitignore
 ├── data/
-│   ├── los_rios.geojson                # Polígonos de las parroquias
-│   └── predicciones_parroquias.csv     # Predicciones del modelo
+│   ├── los_rios.geojson                       # Polígonos de las parroquias
+│   └── predicciones_parroquias.csv            # Predicciones del modelo
 ├── templates/
-│   └── index.html                      # Mapa Leaflet
+│   └── index.html                             # Mapa Leaflet
 ├── static/
 └── Notebook/
-    ├── Proyecto_LosRios_FINALII_(1).ipynb   # Notebook con el análisis y entrenamiento del modelo
-    └── Informe y Presentacion/              # Informe y presentación del proyecto
-
+    ├── Proyecto_LosRiosFINALII_(1).ipynb      # Notebook con el análisis y entrenamiento del modelo
+    └── Informe y Presentacion/                # Informe y presentación del proyecto
+```
 ## Cómo funciona
 
 `app.py` combina el GeoJSON con el CSV de predicciones, emparejando por código de parroquia (DPA_PARROQ - codigo_parroquia).
