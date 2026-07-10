@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riesgo de Inundación — Parroquias de Los Ríos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__title">
+      <span class="topbar__eyebrow">Proyecto 2do Parcial · Ciencia de Datos e IA</span>
+      <h1>Riesgo de inundación por parroquia <span class="topbar__province">— Los Ríos</span></h1>
+    </div>
+    <div class="topbar__meta">
+      <span id="contador-parroquias">30 parroquias</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel">
+      <section class="panel__block">
+        <h2>Cómo leer el mapa</h2>
+        <p>Cada polígono es una parroquia de la provincia de Los Ríos. El color
+        representa el nivel de riesgo de inundación estimado por el modelo
+        (Regresión Logística).</p>
+      </section>
+
+      <section class="panel__block">
+        <h2>Leyenda</h2>
+        <ul class="legend">
+          <li><span class="legend__dot" style="background:#e74c3c"></span> Riesgo alto</li>
+          <li><span class="legend__dot" style="background:#f5a623"></span> Riesgo medio</li>
+          <li><span class="legend__dot" style="background:#2ecc71"></span> Riesgo bajo</li>
+          <li><span class="legend__dot" style="background:#9aa5b1"></span> Sin dato</li>
+        </ul>
+      </section>
+
+      <section class="panel__block">
+        <h2>Interacción</h2>
+        <p><strong>Pasa el cursor</strong> sobre una parroquia para ver su nombre,
+        cantón y provincia.</p>
+        <p><strong>Haz clic</strong> para ver la categoría de riesgo y la
+        probabilidad asignada por el modelo.</p>
+      </section>
+
+      <div id="info-parroquia" class="panel__block panel__selection" hidden>
+        <h2 id="sel-nombre">—</h2>
+        <p id="sel-canton" class="muted">—</p>
+        <div class="sel-riesgo">
+          <span id="sel-badge" class="badge">—</span>
+          <span id="sel-score" class="muted"></span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="map-wrap">
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+</body>
+</html>
