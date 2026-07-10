@@ -40,3 +40,7 @@ python app.py
 ```
 
 Abrir http://127.0.0.1:5000.
+
+## Despliegue
+
+Alojado en PythonAnywhere. El backend está en Flask y las visualizaciones geográficas en Leaflet, cargando `los_rios.geojson` y `predicciones_parroquias.csv` desde la carpeta `data/`.
