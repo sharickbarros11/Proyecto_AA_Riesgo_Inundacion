@@ -1,0 +1,222 @@
+:root {
+  --bg: #0e1b2b;
+  --panel: #f4f6f5;
+  --ink: #0e1b2b;
+  --muted: #5b6b76;
+  --line: #dfe4e2;
+  --accent: #1d6f99;
+  --river: #2a7fb0;
+  --alto: #e74c3c;
+  --medio: #f5a623;
+  --bajo: #2ecc71;
+  --sin-dato: #9aa5b1;
+
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--panel);
+}
+
+/* ---------- Topbar ---------- */
+.topbar {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  background: var(--bg);
+  color: #eef3f5;
+  border-bottom: 3px solid var(--river);
+}
+
+.topbar__eyebrow {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fb8c7;
+  margin-bottom: 2px;
+}
+
+.topbar h1 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.topbar__province {
+  color: #7fc4e8;
+  font-weight: 500;
+}
+
+.topbar__meta {
+  font-size: 13px;
+  color: #9fb8c7;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Layout ---------- */
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: calc(100% - 72px);
+}
+
+.panel {
+  background: #fff;
+  border-right: 1px solid var(--line);
+  overflow-y: auto;
+  padding: 24px 22px;
+}
+
+.panel__block {
+  margin-bottom: 26px;
+}
+
+.panel__block h2 {
+  font-family: var(--font-display);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.panel__block p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #34414a;
+  margin: 0 0 8px;
+}
+
+.legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  font-size: 13.5px;
+}
+
+.legend__dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  margin-right: 9px;
+  vertical-align: middle;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.panel__selection {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px;
+  background: #fbfcfb;
+}
+
+.panel__selection h2 {
+  color: var(--ink);
+  font-size: 16px;
+  text-transform: none;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+
+.muted { color: var(--muted); font-size: 13px; margin: 0; }
+
+.sel-riesgo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #fff;
+  background: var(--sin-dato);
+}
+
+.badge--alto  { background: var(--alto); }
+.badge--medio { background: var(--medio); }
+.badge--bajo  { background: var(--bajo); }
+
+/* ---------- Map ---------- */
+.map-wrap { position: relative; }
+#map { width: 100%; height: 100%; background: #cfe3ea; }
+
+.leaflet-tooltip-parroquia {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  line-height: 1.4;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(14,27,43,0.18);
+}
+
+.leaflet-tooltip-parroquia strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  margin-bottom: 2px;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 10px;
+}
+
+.popup-riesgo {
+  font-family: var(--font-body);
+  font-size: 13px;
+  min-width: 170px;
+}
+
+.popup-riesgo h3 {
+  font-family: var(--font-display);
+  font-size: 14.5px;
+  margin: 0 0 6px;
+}
+
+.popup-riesgo .badge { margin: 6px 0 6px; }
+
+.popup-riesgo table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.popup-riesgo td {
+  padding: 2px 0;
+  color: var(--muted);
+}
+
+.popup-riesgo td:last-child {
+  text-align: right;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .panel { border-right: none; border-bottom: 1px solid var(--line); max-height: 38vh; }
+}
